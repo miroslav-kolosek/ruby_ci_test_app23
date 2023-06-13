@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true
-  validates :body, presence: true, length: { minimum: 10 }
+  validates :body, presence: true, length: { minimum: 10  }
 
   VALID_STATUSES = ['public', 'private', 'archived']
 
@@ -13,6 +13,6 @@ class Article < ApplicationRecord
   end
 
   def self.public_count
-    where(status: 'public').count
+    where( status: 'public' ).count
   end
 end
